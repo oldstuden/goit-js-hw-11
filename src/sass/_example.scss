@@ -4,25 +4,72 @@
   line-height: 1.5;
   background-color: #fff;
   color: #2f2f37;
-  max-width: 960px;
-  padding: 16px;
+  text-align: center;
 }
-
-.example code {
-  font-family: monospace;
-  font-size: 16px;
-  font-weight: 700;
-  background-color: #ff6b0a;
-  color: #fff;
-  padding: 2px 6px;
-  border-radius: 2px;
+.header {
+  position: sticky;
+  left: 0;
+  top: 0;
+  padding: 20px 0px;
+  background-color: #015ddf;
 }
-
-.example .background {
-  height: 240px;
-  // ❗️❗️❗️ The path to images from a SASS file
-  // is always the same as from the css folder.
-  background-image: url('../images/logo.png');
-  background-size: cover;
-  background-position: center;
+.search-form {
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.search-form button {
+  padding: 0px 20px;
+  border: 1px solid #fdfdfd;
+  border-radius: 5px;
+}
+.search-form input {
+  width: 65%;
+  padding: 10px;
+  border-radius: 5px;
+  outline: transparent;
+  border: 1px solid;
+}
+.load-more {
+  padding: 5px 20px;
+  border-radius: 5px;
+  background-color: #015ddf;
+  color: #fdfdfd;
+  outline: transparent;
+  border: 1px solid transparent;
+  margin-top: 15px;
+}
+.gallery {
+  display: grid;
+  max-width: 1140px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-auto-rows: 240px;
+  grid-gap: 12px;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+.photo-card img {
+  display: block;
+  height: 80%;
+  width: 100%;
+  object-fit: cover;
+  /* transition: transform var(--animation-duration) var(--timing-function); */
+}
+.info {
+  display: flex;
+  justify-content: space-around;
+  font-size: 12px;
+  border-left: 1px solid #e7e9fc;
+  border-right: 1px solid #e7e9fc;
+  border-bottom: 1px solid #e7e9fc;
+}
+.info-item {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px;
 }
