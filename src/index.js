@@ -19,10 +19,16 @@ let page = 1;
 let perPage = 40;
 function onLoadMore() {
   page += 1;
+  const { height: cardHeight } = form.firstElementChild.getBoundingClientRect();
+  window.scrollBy({
+    top: cardHeight * 2,
+    behavior: 'smooth',
+  });
 
   fetchPhoto(searchParams, page, query)
     .then(data => {
       gallery.insertAdjacentHTML('beforeend', createMarcup(data.hits));
+      lightbox.refresh();
       let result = page * perPage;
       if (result >= data.totalHits) {
         loadMore.hidden = true;
@@ -40,9 +46,11 @@ function onSubmit(evt) {
   fetchPhoto(searchParams, page, query)
     .then(data => {
       gallery.innerHTML = createMarcup(data.hits);
+      lightbox.refresh();
       let result = page * perPage;
       if (result < data.totalHits) {
         loadMore.hidden = false;
+        Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images`);
       }
       if (!data.hits.length) {
         messageError(
@@ -50,7 +58,6 @@ function onSubmit(evt) {
         );
         loadMore.hidden = true;
       }
-      Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images`);
     })
     .catch(err => {
       console.log(err);
