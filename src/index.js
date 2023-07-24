@@ -19,7 +19,8 @@ let page = 1;
 let perPage = 40;
 function onLoadMore() {
   page += 1;
-  const { height: cardHeight } = form.firstElementChild.getBoundingClientRect();
+  const { height: cardHeight } =
+    gallery.firstElementChild.getBoundingClientRect();
   window.scrollBy({
     top: cardHeight * 2,
     behavior: 'smooth',
